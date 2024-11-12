@@ -1,4 +1,5 @@
 from pandas import DataFrame
+import numpy as np
 import sys
 import csv
 
@@ -36,6 +37,7 @@ def error_exit(string):
 
 def normalisation(s):
     return [((_ - min(s)) / (max(s) - min(s))) for _ in s]
+
 
 
 def raw_estimated_price(t0, x, t1):
