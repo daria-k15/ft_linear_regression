@@ -15,7 +15,7 @@ def read_thetas():
         return None
 
 def predict(milage, thetas):
-    return thetas[0] + milage * thetas[1]
+    return max(0, thetas[0] + milage * thetas[1])
 
 def delete_thetas_file():
     if (os.path.exists("thetas.txt")):
