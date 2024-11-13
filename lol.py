@@ -53,7 +53,7 @@ class ft_linear_regression:
         self.live = live
 
     def MSE_percent(self):
-        self.MSE = 100 * self.cost
+        self.MSE = 100 * self.cost()
         return self.MSE
 
     def estimatePrice(self, t0, t1, mileage):
@@ -63,7 +63,6 @@ class ft_linear_regression:
     def RMSE_percent(self):
         self.RMSE = 100 * (1 - self.cost() ** 0.5)
         return self.RMSE
-
 
     #MSE
 #     self.cost() — вызывает функцию cost, чтобы получить MSE.
@@ -108,8 +107,8 @@ class ft_linear_regression:
                     tmp[0] += T
                     tmp[1] += T * self.X[i]
 
-                self.T0 = self.T0 - self.learning_rate * (tmp[0] / self.M)
-                self.T1 = self.T1 - self.learning_rate * (tmp[1] / self.M)
+                self.T0 -= self.learning_rate * (tmp[0] / self.M)
+                self.T1 -= self.learning_rate * (tmp[1] / self.M)
 
                 self.C.append(self.cost())
 
